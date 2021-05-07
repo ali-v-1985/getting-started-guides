@@ -1,10 +1,10 @@
 var autoRefreshCount = 0;
 var autoRefreshIntervalId = null;
 
-function refreshPath() {
-    $.getJSON("/path", function (path) {
-        refreshSolvingButtons(path.solverStatus != null && path.solverStatus !== "NOT_SOLVING");
-        $("#score").text("Score: "+ (path.score == null ? "?" : path.score));
+function refreshTimeTable() {
+    $.getJSON("/timeTable", function (timeTable) {
+        refreshSolvingButtons(timeTable.solverStatus != null && timeTable.solverStatus !== "NOT_SOLVING");
+        $("#score").text("Score: "+ (timeTable.score == null ? "?" : timeTable.score));
 
         const timeTableByRoom = $("#timeTableByRoom");
         timeTableByRoom.children().remove();
